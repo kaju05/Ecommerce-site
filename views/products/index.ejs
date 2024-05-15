@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate')%>
+    <%- include('../partials/navbar') %>
+
+        <div class="row">
+            <%if(msg && msg.length){%>
+                <div class="alert alert-primary" role="alert">
+
+                    <%=msg%>
+
+                </div>
+                <%}%>
+        </div>
+        
+        <%for(let item of products){%>
+            <div class="card shadow mx-auto" style="width: 18rem;">
+                <img src="<%=item.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=item.name%>
+                    </h5>
+                    <h6 class="card-title">
+                        <%=item.price%>
+                    </h6>
+                    <p class="card-text">
+                        <%=item.desc%>
+                    </p>
+                    <a href="/products/<%=item._id%>" class="btn btn-primary">show</a>
+                </div>
+            </div>
+            <%}%>
+
+
+                </body>
+
+                </html>

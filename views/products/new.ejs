@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+    <%- include('../partials/navbar') %>
+        <form action="/products" method="POST" >
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="image">Image:</label>
+                <input type="text" name="image" id="image">
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" name="price" id="price">
+            </div>
+            <div>
+                <label for="desc">Desc:</label>
+                <input type="text" name="desc" id="desc">
+            </div>
+            <button type="submit">Add</button>
+        </form>
+
+        </body>
+
+        </html>

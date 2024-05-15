@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate')%>
+    <%- include('../partials/navbar') %>
+
+        <form action="/products/<%=foundProduct._id%>?_method=PATCH" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<%=foundProduct.name%>">
+            </div>
+            <div>
+                <label for="image">Image:</label>
+                <input type="text" name="image" id="image" value="<%=foundProduct.image%>">
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" name="price" id="price" value="<%=foundProduct.price%>">
+            </div>
+            <div>
+                <label for="desc">Desc:</label>
+                <input type="text" name="desc" id="desc" value="<%=foundProduct.desc%>">
+            </div>
+            <button type="submit">Edit</button>
+        </form>

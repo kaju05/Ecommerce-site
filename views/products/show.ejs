@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate')%>
+    <%- include('../partials/navbar') %>
+        <div class="row">
+            <%if(msg && msg.length){%>
+                <div class="alert alert-primary" role="alert">
+    
+                    <%=msg%>
+    
+                </div>
+                <%}%>
+        </div>
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="<%=foundProduct.image%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=foundProduct.name%>
+                        </h5>
+                        <h6 class="card-title">
+                            <%=foundProduct.price%>
+                        </h6>
+                        <p class="card-text">
+                            <%=foundProduct.desc%>
+                        </p>
+                        <a href="/products/<%=foundProduct._id%>/edit" class="btn btn-primary">Edit</a>
+                        <form class="d-inline-block" action="/products/<%=foundProduct._id%>?_method=DELETE"
+                            method="POST">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <h1> write an review</h1>
+
+
+                <div class="mb-3">
+                    <form action="/products/<%=foundProduct._id%>/review" method="POST">
+                        <div>
+                            <label for="rating">Rating:</label>
+                            <input type="number" name="rating" id="rating" min="0" max="5">
+                        </div>
+                        <div>
+                            <label for="comment">comment:</label>
+                            <input type="text" name="comment" id="comment">
+                        </div>
+                        <button>Add</button>
+                    </form>
+                </div>
+                <h1>Reviews</h1>
+
+                <div>
+                    <%for(let review of foundProduct.reviews){%>
+                        <div class="card">
+                            <div class="card-header">
+                                <%=review.rating%>
+                            </div>
+                            <div class="card-body">
+                                <%=review.comment%>
+                            </div>
+                        </div>
+
+                        <% } %>
+                </div>
